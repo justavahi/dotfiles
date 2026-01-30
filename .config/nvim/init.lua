@@ -12,3 +12,8 @@ vim.wo.relativenumber = true
 vim.wo.cursorline = true
 
 vim.opt.spelloptions = 'camel'
+
+-- ALIAS
+vim.cmd([[
+  command! W w
+]])

@@ -95,7 +95,7 @@ binds {
     Mod+R      hotkey-overlay-title="Open yazi"          { spawn-sh "foot yazi"; }
     Mod+F      hotkey-overlay-title="Open Zen Browser"   { spawn "zen-browser"; }
     Mod+B      hotkey-overlay-title="Open Zen Browser"   { spawn "zen-browser"; }
-    Mod+N      hotkey-overlay-title="Open Nekoray"       { spawn "nekoray"; } // ?
+    Mod+N      hotkey-overlay-title="Open Nekoray"       { spawn "nekoray"; }
     Mod+I      hotkey-overlay-title="Open Perplexity"    { spawn-sh "zen-browser https://www.perplexity.ai/"; }
     Mod+G      hotkey-overlay-title="Open Github"        { spawn-sh "zen-browser https://www.github.com/"; }
     Alt+N      hotkey-overlay-title="Change wallpaper"   { spawn-sh "waypaper --wallpaper ~/Pictures/wallpapers --random"; }
@@ -182,5 +182,4 @@ binds {
     Alt+Print { screenshot-window; }
 
     Mod+Shift+M { quit; } /* QUIT NIRI */
-    Mod+Shift+P { power-off-monitors; } /* BE CAREFUL!!! */
 }
