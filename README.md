@@ -67,3 +67,8 @@ git clone https://github.com/Aloxaf/fzf-tab                        $ZSH_CUSTOM/p
   
 source ~/.zshrc
 ```
+6) Yazi:
+```bash
+cd ~/.config/yazi
+ya pkg install
+```
