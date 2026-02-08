@@ -44,7 +44,7 @@ stow dotfiles
   2.1) edit doas.conf(set username)
   2.2) copy files
 ```bash
-sudo cp ignorepkgs /etc/xbps.d/ignorepkgs.conf
+sudo cp ignorepkgs.conf /etc/xbps.d/ignorepkgs.conf
 sudo cp doas.conf /etc/doas.conf
 ```  
   2.3) remove sudo

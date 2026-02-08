@@ -9,7 +9,7 @@ import Quickshell.Wayland
 Item {
   id: root
 
-  // ---- TuningTuning  ----
+  // ---- Tuning ----
   property int toastWidth: 420
   property int maxVisible: 6
   property int defaultTimeoutMs: 6000
