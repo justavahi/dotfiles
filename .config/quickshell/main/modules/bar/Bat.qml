@@ -31,9 +31,9 @@ Text {
   function getBatteryColor() {
     if (status === "Charging") return "#cca53e"
 
-    if (capacity <= 10) return "#ff0000"  // dangerous color 
+    if (capacity <= 10) return "#880000"  // dangerous color 
     if (capacity <= 15) return "#f38ba8"  // critical color 
-    if (capacity <= 20) return "#fab387"  // warning  color
+    if (capacity <= 20) return "#ff5500"  // warning  color
     return "#cca53e"  // default color
   }
 

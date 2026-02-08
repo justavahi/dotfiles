@@ -1,25 +1,61 @@
 # Requirements  
-niri ( + wayland, swww, dunst, waypaper, swaylock, batsignal )  
+git stow  
+niri ( + wayland, swww, swaylock, batsignal )  
 quickshell, fuzzel  
-foot, nvim, zsh ( + ohmyzsh, fzf )  
-yazi( + telegram-send, imagemagick, wl-clipboard )  
+foot, nvim, zsh ( + ohmyzsh, curl, fzf )  
+yazi( + ImageMagick, wl-clipboard )  
 zen-browser
+  
+# Install dependings
+1) Install dependings(xbps):
+```bash
+sudo xbps-install -S git stow
+sudo xbps-install -S niri wayland swww swaylock batsignal
+sudo xbps-install -S quickshell fuzzel
+sudo xbps-install -S foot neovim zsh curl fzf
+sudo xbps-install -S yazi ImageMagick wl-clipboard
+```
+2) Install ohmyzsh:
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+3) Install flatpak:
+```bash
+sudo xbps-install -S flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+4) Install zen-browser:
+Install
+```bash
+flatpak install flathub app.zen_browser.zen # Install
+```
+Run
+```bash
+flatpak run app.zen_browser.zen # Run
+```
   
 # Installation  
 1) Copy repository:
 ```bash
-git clone https://github.com/prilter/niri-conf
-mv niri-conf/* .
-```  
-2) Install all yazi requirements:  
+git clone https://github.com/prilter/dotfiles
+stow dotfiles
+```
+2) doas configuration:
+  2.1) edit doas.conf(set username)
+  2.2) copy files
 ```bash
-cd ~/.config/yazi
-ya pkg install
+sudo cp ignorepkgs /etc/xbps.d/ignorepkgs.conf
+sudo cp doas.conf /etc/doas.conf
 ```  
-3) Install all neovim requirements:  
- 3.1) open nvim  
- 3.2) prompt ```:Lazy install```
-4) Install all zsh requirements:  
+  2.3) remove sudo
+```bash
+doas xbps-remove -R sudo
+```  
+4) Install all neovim requirements:  
+```bash
+nvim
+```
+5) Install all zsh requirements:  
 ```bash  
 export ZSH_CUSTOM=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}  
   

@@ -1,80 +1,67 @@
 prefer-no-csd
 
 input {
-    keyboard {
-        repeat-delay 200
-        repeat-rate 35
-        numlock
+  keyboard {
+    repeat-delay 200
+    repeat-rate 35
+    numlock
 
-        xkb { /* KEYBOARD LANGUAGE SWITCHING */
-          layout "us,ru"
-          options "grp:alt_shift_toggle"
-        }
+    xkb { /* KEYBOARD LANGUAGE SWITCHING */
+      layout "us,ru"
+      options "grp:alt_shift_toggle"
     }
+  }
 
-    touchpad {
-        tap
-        dwt /* DISABLE THE TOUCHPAD WHILE TYPING ON THE KEYBOARD */
-        drag-lock /* DISABLE HOLDING WHILE MOVING SOME FILE */
-        natural-scroll
-    }
+  touchpad {
+    tap
+    dwt /* DISABLE THE TOUCHPAD WHILE TYPING ON THE KEYBOARD */
+    drag-lock /* DISABLE HOLDING WHILE MOVING SOME FILE */
+    natural-scroll
+  }
 }
 
 gestures { /* LEFT TOP SIDE */
-    hot-corners {
-        off
-    }
+  hot-corners {
+    off
+  }
 }
 
 layout {
-    gaps 7
-    center-focused-column "never" 
+  gaps 4
+  center-focused-column "never" 
 
-    preset-column-widths {
-        proportion 0.3333
-        proportion 0.5
-        proportion 0.66667
-    }
+  preset-column-widths {
+    proportion 0.3333
+    proportion 0.5
+    proportion 0.66667
+  }
 
-    default-column-width { proportion 0.7; } /* YOU CAN CHANGE THE DEFAULT WIDTH OF THE NEW WINDOWS. */
-    focus-ring {
-        off
-        width 1.5
-        active-color "#4C6EB5"
-        inactive-color "#76B3DC"
-    }
+  default-column-width { proportion 0.7; } /* YOU CAN CHANGE THE DEFAULT WIDTH OF THE NEW WINDOWS. */
+  focus-ring {
+    off
+  }
 
-    border { /* YOU CAN ALSO ADD A BORDER. IT'S SIMILAR TO THE FOCUS RING, BUT ALWAYS VISIBLE. */
-        off
-
-        width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
-
-        urgent-color "#9b0000" /* COLOR OF THE BORDER AROUND WINDOWS THAT REQUEST YOUR ATTENTION. */
-    }
-
-    shadow {
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#0007"
-    }
+  border { /* YOU CAN ALSO ADD A BORDER. IT'S SIMILAR TO THE FOCUS RING, BUT ALWAYS VISIBLE. */
+    width 3
+    active-color "#cca53a"
+    inactive-color "#2b2b2b"
+  }
 }
 
 /* AUTOSTART */
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "pipewire"
 spawn-at-startup "bash" "-c" "quickshell -c ~/.config/quickshell/main/"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "bash" "-c" "gammastep"
-spawn-at-startup "bash" "-c" "batsignal -d 10 -D 'brightnessctl set 30% && systemctl suspend' -w 20 -W 'warning level' -c 15 -C 'critical level'"
+spawn-at-startup "bash" "-c" "batsignal -d 10 -D 'doas brightnessctl set 30% && doas zzz -Z' -w 20 -W 'warning level' -c 15 -C 'critical level'"
 spawn-at-startup "dunst"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png" /* SCREENSHOTS PATH */
 
 window-rule { /* OPACITY FOR TERMINAL */
   match app-id="foot"
-  opacity 0.9
+  opacity 0.98
 }
 
 window-rule { /* WAYPAPER FLOATING MODE */
@@ -82,104 +69,96 @@ window-rule { /* WAYPAPER FLOATING MODE */
   open-floating true
 }
 
-window-rule { /* ROUND ANGLES OF WINDOWS */
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
-
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
+  Mod+Shift+Slash { show-hotkey-overlay; }
 
-    // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal"    { spawn "foot"; }
-    Mod+R      hotkey-overlay-title="Open yazi"          { spawn-sh "foot yazi"; }
-    Mod+F      hotkey-overlay-title="Open Zen Browser"   { spawn "zen-browser"; }
-    Mod+B      hotkey-overlay-title="Open Zen Browser"   { spawn "zen-browser"; }
-    Mod+N      hotkey-overlay-title="Open Nekoray"       { spawn "nekoray"; }
-    Mod+I      hotkey-overlay-title="Open Perplexity"    { spawn-sh "zen-browser https://www.perplexity.ai/"; }
-    Mod+G      hotkey-overlay-title="Open Github"        { spawn-sh "zen-browser https://www.github.com/"; }
-    Alt+N      hotkey-overlay-title="Change wallpaper"   { spawn-sh "waypaper --wallpaper ~/Pictures/wallpapers --random"; }
-    Alt+W      hotkey-overlay-title="Choose wallpaper"   { spawn-sh "GTK_THEME=Adwaita:dark waypaper"; }
-    Alt+B      hotkey-overlay-title="Remove wallpaper"   { spawn-sh "swww clear";}
-    Alt+Space  hotkey-overlay-title="Run hotspote"       { spawn "fuzzel"; }
-    Alt+Q      hotkey-overlay-title="Lock the Screen"    { spawn "swaylock"; }
+  // Suggested binds for running programs: terminal, app launcher, screen locker.
+  Mod+Return hotkey-overlay-title="Open a Terminal"    { spawn "foot"; }
+  Mod+R      hotkey-overlay-title="Open yazi"          { spawn-sh "foot yazi"; }
+  Mod+F      hotkey-overlay-title="Open Zen Browser"   { spawn-sh "flatpak run app.zen_browser.zen"; }
+  Mod+N      hotkey-overlay-title="Open Nekoray"       { spawn "nekoray"; }
+  Mod+I      hotkey-overlay-title="Open Perplexity"    { spawn-sh "zen-browser https://www.perplexity.ai/"; }
+  Mod+G      hotkey-overlay-title="Open Github"        { spawn-sh "zen-browser https://www.github.com/"; }
+  Alt+N      hotkey-overlay-title="Change wallpaper"   { spawn-sh "~/.config/niri/scripts/wallpaper.sh ~/Pictures/wallpapers/"; }
+  Alt+B      hotkey-overlay-title="Remove wallpaper"   { spawn-sh "swww clear";}
+  Alt+Space  hotkey-overlay-title="Run hotspote"       { spawn "fuzzel"; }
+  Alt+Q      hotkey-overlay-title="Lock the Screen"    { spawn "swaylock"; }
 
-    // F-keys
-    F1 hotkey-overlay-title="No sound"        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    F2 hotkey-overlay-title="Lower sound"     allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    F3 hotkey-overlay-title="Raise sound"     allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    F4 hotkey-overlay-title="Brightness down" allow-when-locked=true { spawn    "brightnessctl" "--class=backlight" "set" "10%-"; }
-    F5 hotkey-overlay-title="Brightness up"   allow-when-locked=true { spawn    "brightnessctl" "--class=backlight" "set" "+10%"; }
+  // F-keys
+  F1 hotkey-overlay-title="No sound"        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+  F2 hotkey-overlay-title="Lower sound"     allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+  F3 hotkey-overlay-title="Raise sound"     allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+  F4 hotkey-overlay-title="Brightness down" allow-when-locked=true { spawn-sh "doas brightnessctl set 10%-"; }
+  F5 hotkey-overlay-title="Brightness up"   allow-when-locked=true { spawn-sh "doas brightnessctl set 10%+"; }
 
 
-    Mod+Q repeat=false hotkey-overlay-title="Close window" { close-window; } /* CLOSE WINDOW */
+  Mod+Q repeat=false hotkey-overlay-title="Close window" { close-window; } /* CLOSE WINDOW */
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
-
-
-    /* CHANGE SIZE OF WINDOW */
-    Mod+A { set-column-width "-10%"; }
-    Mod+D { set-column-width "+10%"; }
-    Mod+S { set-window-height "-10%"; }
-    Mod+W { set-window-height "+10%"; }
-
-    /* MOVE WINDOWS */
-    Mod+Shift+H { move-column-left; }
-    Mod+Shift+L { move-column-right; }
-    Mod+Shift+J { move-window-down; }
-    Mod+Shift+K { move-window-up; }
-
-    Mod+Comma   { consume-or-expel-window-left;  }
-    Mod+Period  { consume-or-expel-window-right; }
-
-    Mod+Shift+BracketLeft  { move-column-to-first; }
-    Mod+Shift+BracketRight { move-column-to-last;  }
-
-    /* MOVE TO FIRST AND LAST WINDOWS */
-    Mod+BracketLeft  { focus-column-first; }
-    Mod+BracketRight { focus-column-last; }
+  Mod+Left  { focus-column-left; }
+  Mod+Down  { focus-window-down; }
+  Mod+Up    { focus-window-up; }
+  Mod+Right { focus-column-right; }
+  Mod+H     { focus-column-left; }
+  Mod+J     { focus-window-down; }
+  Mod+K     { focus-window-up; }
+  Mod+L     { focus-column-right; }
 
 
-    Alt+J              { focus-workspace-down; }
-    Alt+K              { focus-workspace-up; }
-    Mod+1              { move-column-to-workspace 1; }
-    Mod+2              { move-column-to-workspace 2; }
-    Mod+3              { move-column-to-workspace 3; }
-    Mod+4              { move-column-to-workspace 4; }
-    Mod+5              { move-column-to-workspace 5; }
+  /* CHANGE SIZE OF WINDOW */
+  Mod+A { set-column-width "-10%"; }
+  Mod+D { set-column-width "+10%"; }
+  Mod+S { set-window-height "-10%"; }
+  Mod+W { set-window-height "+10%"; }
 
-    /* MOVE TO OTHER WORKSPACE */
-    Alt+1 { focus-workspace 1; }
-    Alt+2 { focus-workspace 2; }
-    Alt+3 { focus-workspace 3; }
-    Alt+4 { focus-workspace 4; }
-    Alt+5 { focus-workspace 5; }
- 
-    Alt+Tab { focus-workspace-previous; } /* MOVE TO PREVIOUS WORKSPACE */
-    Alt+O   { toggle-overview; }          /* WORKSPACES MENU */
+  /* MOVE WINDOWS */
+  Mod+Shift+H { move-column-left; }
+  Mod+Shift+L { move-column-right; }
+  Mod+Shift+J { move-window-down; }
+  Mod+Shift+K { move-window-up; }
 
-    Mod+C { center-column; } /* CENTER WINDOW */
+  Mod+Comma   { consume-or-expel-window-left;  }
+  Mod+Period  { consume-or-expel-window-right; }
+
+  Mod+Shift+BracketLeft  { move-column-to-first; }
+  Mod+Shift+BracketRight { move-column-to-last;  }
+
+  /* MOVE TO FIRST AND LAST WINDOWS */
+  Mod+BracketLeft  { focus-column-first; }
+  Mod+BracketRight { focus-column-last; }
+
+  Alt+J              { focus-workspace-down; }
+  Alt+K              { focus-workspace-up; }
+  Mod+1              { move-column-to-workspace 1; }
+  Mod+2              { move-column-to-workspace 2; }
+  Mod+3              { move-column-to-workspace 3; }
+  Mod+4              { move-column-to-workspace 4; }
+  Mod+5              { move-column-to-workspace 5; }
+
+  /* MOVE TO OTHER WORKSPACE */
+  Alt+1 { focus-workspace 1; }
+  Alt+2 { focus-workspace 2; }
+  Alt+3 { focus-workspace 3; }
+  Alt+4 { focus-workspace 4; }
+  Alt+5 { focus-workspace 5; }
+
+  Alt+Tab { focus-workspace-previous; } /* MOVE TO PREVIOUS WORKSPACE */
+  Alt+O   { toggle-overview; }          /* WORKSPACES MENU */
+
+  Mod+C { center-column; } /* CENTER WINDOW */
 
 
-    /* FLOATING(bloated function for niri for my take) */
-    Mod+E       { toggle-window-floating; }
-    Mod+Shift+E { switch-focus-between-floating-and-tiling; }
+  /* FLOATING(bloated function for niri for my take) */
+  Mod+E       { toggle-window-floating; }
+  Mod+Shift+E { switch-focus-between-floating-and-tiling; }
 
-    /* FULLSCREEN */
-    Mod+U { toggle-column-tabbed-display; } /* VERTICAL */
-    Mod+V { maximize-column; }              /* HORIZONTAL */
-    Mod+Shift+V { fullscreen-window; }      /* FULL */
+  /* FULLSCREEN */
+  Mod+U { toggle-column-tabbed-display; } /* VERTICAL */
+  Mod+V { maximize-column; }              /* HORIZONTAL */
+  Mod+Shift+V { fullscreen-window; }      /* FULL */
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
 
-    Mod+Shift+M { quit; } /* QUIT NIRI */
+  Mod+Shift+M { quit; } /* QUIT NIRI */
 }

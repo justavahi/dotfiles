@@ -34,6 +34,7 @@ PanelWindow {
 
       Ram {}
       Volume {}
+      Light {}
       Text { 
         text: "|" 
         color: "#cca53e"
