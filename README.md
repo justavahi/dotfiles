@@ -38,7 +38,8 @@ flatpak run app.zen_browser.zen # Run
 1) Copy repository:
 ```bash
 git clone https://github.com/prilter/dotfiles
-stow dotfiles
+cd dotfiles
+stow .
 ```
 2) doas configuration:  
   2.1) edit doas.conf(set username)  
