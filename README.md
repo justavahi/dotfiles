@@ -1,6 +1,6 @@
 # Requirements  
 git stow  
-niri ( + wayland, swww, swaylock, batsignal )  
+niri ( + wayland, swww, swaylock, batsignal, brightnessctl, zzz )  
 quickshell, fuzzel  
 foot, nvim, zsh ( + ohmyzsh, curl, fzf )  
 yazi( + ImageMagick, wl-clipboard )  
@@ -10,7 +10,7 @@ zen-browser
 1) Install dependings(xbps):
 ```bash
 sudo xbps-install -S git stow
-sudo xbps-install -S niri wayland swww swaylock batsignal
+sudo xbps-install -S niri wayland swww swaylock batsignal brightnessctl zzz
 sudo xbps-install -S quickshell fuzzel
 sudo xbps-install -S foot neovim zsh curl fzf
 sudo xbps-install -S yazi ImageMagick wl-clipboard
@@ -40,9 +40,9 @@ flatpak run app.zen_browser.zen # Run
 git clone https://github.com/prilter/dotfiles
 stow dotfiles
 ```
-2) doas configuration:
-  2.1) edit doas.conf(set username)
-  2.2) copy files
+2) doas configuration:  
+  2.1) edit doas.conf(set username)  
+  2.2) copy files  
 ```bash
 sudo cp ignorepkgs.conf /etc/xbps.d/ignorepkgs.conf
 sudo cp doas.conf /etc/doas.conf
