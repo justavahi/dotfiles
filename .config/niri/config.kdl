@@ -54,7 +54,7 @@ spawn-at-startup "pipewire"
 spawn-at-startup "bash" "-c" "quickshell -c ~/.config/quickshell/main/"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "bash" "-c" "gammastep"
-spawn-at-startup "bash" "-c" "batsignal -d 10 -D 'doas brightnessctl set 30% && doas zzz -Z' -w 20 -W 'warning level' -c 15 -C 'critical level'"
+spawn-at-startup "bash" "-c" "batsignal -d 10 -D 'doas brightnessctl set 30% && doas zzz -z' -w 20 -W 'warning level' -c 15 -C 'critical level'"
 spawn-at-startup "dunst"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png" /* SCREENSHOTS PATH */

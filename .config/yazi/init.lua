@@ -13,7 +13,7 @@ require("bunny"):setup({
     { key = "s", path = "~/Pictures/Screenshots", desc = "Screenshots" },
     { key = "w", path = "~/Pictures/wallpapers", desc = "Wallpapers" },
 
-    { key = "c", path = "~/.config", desc = "Config" },
+    { key = "d", path = "~/.dotfiles", desc = "Dotfiles" },
     { key = "r", path = "~/programming", desc = "Programming" },
   },
 })

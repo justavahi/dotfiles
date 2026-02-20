@@ -1,6 +1,6 @@
 # Requirements  
 git stow  
-niri ( + wayland, swww, swaylock, batsignal, brightnessctl, zzz )  
+niri ( + wayland, dbus, swww, swaylock, batsignal, brightnessctl, zzz )  
 quickshell, fuzzel  
 foot, nvim, zsh ( + ohmyzsh, curl, fzf )  
 yazi( + ImageMagick, wl-clipboard )  
@@ -10,7 +10,7 @@ zen-browser
 1) Install dependings(xbps):
 ```bash
 sudo xbps-install -S git stow
-sudo xbps-install -S niri wayland swww swaylock batsignal brightnessctl zzz
+sudo xbps-install -S niri dbus wayland swww batsignal brightnessctl zzz
 sudo xbps-install -S quickshell fuzzel
 sudo xbps-install -S foot neovim zsh curl fzf
 sudo xbps-install -S yazi ImageMagick wl-clipboard
@@ -43,20 +43,17 @@ stow .
 ```
 2) doas configuration:  
   2.1) edit doas.conf(set username)  
-  2.2) copy files  
-```bash
-sudo cp ignorepkgs.conf /etc/xbps.d/ignorepkgs.conf
-sudo cp doas.conf /etc/doas.conf
-```  
-  2.3) remove sudo
-```bash
-doas xbps-remove -R sudo
-```  
-4) Install all neovim requirements:  
+  2.2) copy files and removing sudo  
+    ```bash  
+    sudo echo "ignorepkg=sudo" >> /etc/xbps.d/ignorepkgs.conf  
+    sudo cp doas.conf /etc/doas.conf  
+    doas xbps-remove -R sudo
+    ```  
+3) Install all neovim requirements:  
 ```bash
 nvim
 ```
-5) Install all zsh requirements:  
+4) Install all zsh requirements:  
 ```bash  
 export ZSH_CUSTOM=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}  
   
@@ -67,7 +64,7 @@ git clone https://github.com/Aloxaf/fzf-tab                        $ZSH_CUSTOM/p
   
 source ~/.zshrc
 ```
-6) Yazi:
+5) Yazi:
 ```bash
 cd ~/.config/yazi
 ya pkg install
