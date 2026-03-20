@@ -19,20 +19,6 @@ sudo xbps-install -S yazi ImageMagick wl-clipboard
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-3) Install flatpak:
-```bash
-sudo xbps-install -S flatpak
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-```
-4) Install zen-browser:
-Install
-```bash
-flatpak install flathub app.zen_browser.zen # Install
-```
-Run
-```bash
-flatpak run app.zen_browser.zen # Run
-```
   
 # Installation  
 1) Copy repository:
