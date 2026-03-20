@@ -26,6 +26,12 @@ gestures { /* LEFT TOP SIDE */
   }
 }
 
+animations {
+  workspace-switch { /* damping */
+    spring damping-ratio=0.7 stiffness=300 epsilon=0.05
+  }
+}
+
 layout {
   gaps 4
   center-focused-column "never" 
@@ -54,20 +60,10 @@ spawn-at-startup "pipewire"
 spawn-at-startup "bash" "-c" "quickshell -c ~/.config/quickshell/main/"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "bash" "-c" "gammastep"
-spawn-at-startup "bash" "-c" "batsignal -d 10 -D 'doas brightnessctl set 30% && doas zzz -z' -w 20 -W 'warning level' -c 15 -C 'critical level'"
+spawn-at-startup "bash" "-c" "batsignal -d 10 -D 'doas zzz -z' -w 20 -W 'warning level' -c 15 -C 'critical level'"
 spawn-at-startup "dunst"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png" /* SCREENSHOTS PATH */
-
-window-rule { /* OPACITY FOR TERMINAL */
-  match app-id="foot"
-  opacity 0.98
-}
-
-window-rule { /* WAYPAPER FLOATING MODE */
-  match app-id="waypaper"
-  open-floating true
-}
 
 binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
@@ -82,7 +78,6 @@ binds {
   Alt+N      hotkey-overlay-title="Change wallpaper"   { spawn-sh "~/.config/niri/scripts/wallpaper.sh ~/Pictures/wallpapers/"; }
   Alt+B      hotkey-overlay-title="Remove wallpaper"   { spawn-sh "swww clear";}
   Alt+Space  hotkey-overlay-title="Run hotspote"       { spawn "fuzzel"; }
-  Alt+Q      hotkey-overlay-title="Lock the Screen"    { spawn "swaylock"; }
 
   // F-keys
   F1 hotkey-overlay-title="No sound"        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }

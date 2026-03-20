@@ -1,0 +1,4 @@
+{"timestamp":3632612,"category":"bounce.tracking.protection","name":"purge_action","extra":{"glean_timestamp":"1772462035861","is_dry_run":"true","bounce_time":"1772438621","success":"true","site_host":"reddit.com","require_stateful_bounces":"false"}}
+{"timestamp":14231,"category":"glean","name":"restarted","extra":{"glean_timestamp":"1621987251473","glean.startup.date":"2021-05-26T03:00+03:00"},"execution_counter":1}
+{"timestamp":20008,"category":"glean","name":"restarted","extra":{"glean_timestamp":"1773247327248","glean.startup.date":"2026-03-11T19:42+03:00"},"execution_counter":2}
+{"timestamp":2143097,"category":"glean","name":"restarted","extra":{"glean_timestamp":"1773249450337","glean.startup.date":"2026-03-11T20:17+03:00"},"execution_counter":3}
