@@ -14,3 +14,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 export MANPATH="/usr/local/man:$MANPATH"
+
+# Autostart niri with system
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec niri-session
+fi
