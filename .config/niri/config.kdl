@@ -26,6 +26,12 @@ gestures { /* LEFT TOP SIDE */
     }
 }
 
+animations {
+  workspace-switch {
+    spring damping-ratio=0.85 stiffness=1500 epsilon=0.001
+  }
+}
+
 layout {
     gaps 7
     center-focused-column "never" 
@@ -64,11 +70,10 @@ layout {
 
 /* AUTOSTART */
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "bash" "-c" "quickshell -c ~/.config/quickshell/main/"
+spawn-at-startup "quickshell"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "bash" "-c" "gammastep"
 spawn-at-startup "bash" "-c" "batsignal -d 10 -D 'brightnessctl set 30% && systemctl suspend' -w 20 -W 'warning level' -c 15 -C 'critical level'"
-spawn-at-startup "dunst"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png" /* SCREENSHOTS PATH */
 
@@ -94,9 +99,8 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal"    { spawn "foot"; }
     Mod+R      hotkey-overlay-title="Open yazi"          { spawn-sh "foot yazi"; }
     Mod+F      hotkey-overlay-title="Open Zen Browser"   { spawn "zen-browser"; }
-    Mod+B      hotkey-overlay-title="Open Zen Browser"   { spawn "zen-browser"; }
-    Mod+N      hotkey-overlay-title="Open Nekoray"       { spawn "nekoray"; }
-    Mod+I      hotkey-overlay-title="Open Perplexity"    { spawn-sh "zen-browser https://www.perplexity.ai/"; }
+    Mod+N      hotkey-overlay-title="Open Throne"        { spawn "throne"; }
+    Mod+I      hotkey-overlay-title="Open Claude"        { spawn-sh "firefox https://www.claude.ai/"; }
     Mod+G      hotkey-overlay-title="Open Github"        { spawn-sh "zen-browser https://www.github.com/"; }
     Alt+N      hotkey-overlay-title="Change wallpaper"   { spawn-sh "waypaper --wallpaper ~/Pictures/wallpapers --random"; }
     Alt+W      hotkey-overlay-title="Choose wallpaper"   { spawn-sh "GTK_THEME=Adwaita:dark waypaper"; }
