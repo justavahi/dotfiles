@@ -8,8 +8,8 @@ zen-browser
 # Installation  
 1) Copy repository:
 ```bash
-git clone https://github.com/prilter/niri-conf
-mv niri-conf/* .
+git clone https://github.com/justavahi/dotfiles
+mv dotfiles/* .
 ```  
 2) Install all yazi requirements:  
 ```bash
