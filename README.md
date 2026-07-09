@@ -23,7 +23,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Installation  
 1) Copy repository:
 ```bash
-git clone https://github.com/prilter/dotfiles
+git clone https://github.com/justavahi/dotfiles
 cd dotfiles
 stow .
 ```
